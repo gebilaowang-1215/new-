@@ -1,0 +1,23 @@
+window.location    search  ?   hash  #   href  url   port  端口  host主机   hostname主机名
+JSON.parse   JSON.Stringify
+URL模块
+       parse   解析   url.parse('http://127.0.0.1',true)      解析url地址，返回一个对象
+	url.parse(req.url)字符串    
+	url.parse(req.url,true)  按照对象格式解析
+	portcol 端口域  HTTP://
+	auth  权限
+	host  主机
+	port   端口
+	hostname   主机名  （hostname要和port配合使用）
+	hash  hash值
+	search ？
+	query   获取get方式传输过来的值
+	pathname  后面的一级
+	pash  完整路径
+	href  页面跳转路径
+       resolve   按照url正确的方式解析路径      拼接，对地址字符串拼接
+	第一个参数为主内容，第二个参数为即将要拼接的字段
+	把路径转化为字符串，用第二个参数的路由替换当前路径的一级路由
+       format    格式化        把对象转为字符串
+  
+	

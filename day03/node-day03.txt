@@ -1,0 +1,94 @@
+回顾：
+  fs模块（文件系统）
+读{‘flag'：'a'}   写writeFile    改 rename（文件  目录）    删 unlink（文件）
+创建文件夹 mkdir   删除文件夹rmdir   读文件夹  readdir   状态  stat  （isDirectory（）是否是目录 isFile（）是否是文件）
+
+  url（地址模块）
+url.parse将字符串转化为对象 （true）
+  query获取get方式传输过来的参数
+  path  路由
+  pathname
+  host
+  port
+  hostname
+  href
+  hash 
+  search
+
+url.resolve 拼接
+url.format 格式化  将对象转化为字符串
+
+模块化
+module.exports 
+exports
+默认是一个空对象
+直接抛出是一个数组
+
+
+====================================
+let  const
+块级作用域：只在当前块内生效
+不能重复定义
+暂时性死区
+
+const：常量   不可更改  如：Math.PI  Math.sin  Math.cos
+
+迭代处理函数=>相当于函数自己调用自己
+
+npm:包管理工具
+
+npm init  项目初始化   npm init -y(不需要手动确认,会自动执行到末尾)
+结束后创建一个package.json
+!!!json文件中不能加注释
+
+silly-datetime时间模块,需要下载  包含三个函数(format(new Date()),fromnow ,locate(参数为事件的编码,中文:zh-cn,英文:en))
+
+npm install  下载  (安装依赖)
+下载写法:npm install silly-datetime  (-g全局安装global    --save(-S)安装在生产环境   --save-dev(-D)安装在开发环境)
+做完项目传到服务器上叫生产环境
+
+nvm  node的版本管理工具==>可以随时切换node的版本
+nrm  镜像源管理工具(淘宝镜像cnpm)  
+nrm -V   检测是否下载  
+nrm ls    列出镜像源管理列表
+nrm use 使用镜像源工具
+nrm需要下载npm install nrm -g下载到全局
+
+package-lock.json是package.json的详细描述
+
+npm  install formidable --save    操作form表单的
+缩写:npm i formidable -S
+用到IncomingForm实例化表单
+var form=new formidable.IncomingForm()      会有一个上传目录unloadDir
+form.parse(req,function(err,fields,files){})      fields  =>文本域(传输字段)   files  =>文件域(传输文件)
+uploadDir上传目录
+form表单除了action和method属性还有一个enctype属性三个1\字符2\对象3\纯文本(记事本)
+
+path模块:
+path==>提供一些工具函数,主要处理文件和目录
+  path操作的是文件,而url操作的是网页
+  extname:获取文件的后缀名
+  basename 返回一个真实路径的最后一段
+  normalize 规范路径的输出
+  isAbsolute 判断是否是绝对路径  返回Boolean值
+  join  拼接完整的路径
+  dirname 返回当前文件所在的目录名称
+  extname 返回文件的扩展名
+  format 把对象转化为字符串
+     包含root根  dir目录   base文件路径   
+     console.log返回的是dir和base
+  parse  打印出format初始化的对象
+  resolve  从右向左一次解析,直到返回一个完整的路径
+
+
+起名规范:文件和文件夹的名称不能是所学内容,如node , npm , vue , react等等
+
+作业:网易严选移动端(下周五交)
+需求:5个主页面都做
+       数据用ajax请求
+       点进去的列表
+       点进去的详情
+
+
+
+

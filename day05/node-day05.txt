@@ -1,0 +1,161 @@
+回顾：
+node   
+定义：基于chromo V8引擎的JavaScript运行环境
+特点：单线程  非阻塞I/O  事件驱动
+模块：内置模块    自定义模块
+内置模块：
+	http：服务模块
+ 		createServer（callback(req,res){}）request:请求    response:响应
+		listen：监听（port，callback）
+	fs：文件系统模块
+		读文件：readFile（url，[options]，callback）
+		写文件：writeFile（）默认为覆盖，添加则需定义一个{"flag":'a'}  a---append    r---read    w-write
+		复制
+		删除文件：unlink（）
+		创建目录：mkdir
+		删除目录：rmdir
+		改名：  rename（针对于目录和文件）
+		stat：判断状态  isDirectory是目录   isFile是文件
+	url：地址模块
+		url.parse解析   字符串   如需获取对象需传参true
+                                                query获取地址栏参数
+			path
+			pathName
+			host
+			port
+			search
+			hash
+			hostName
+		url.resolve拼接  拼接字符串
+		url.format格式化
+	path：路径模块
+		parse把字符串转对象
+		stringify把对象转字符串
+		resolve
+		isAbsolute
+		relative
+		dirname
+		basename
+		extname获取文件后缀名
+		join
+		format
+	querystring：查询字符串
+		stringify
+		escape转码
+		unescape
+		parse
+	buffer：缓存区（二进制的缓存区）需要通过new Buffer（）实例化
+		
+	events：事件模块
+		events.emitter（）、  on（） 、 once（）
+	stream：流-----事件流+文件流
+		事件流
+		createStream
+自定义模块：
+   npm  包管理工具       bower浏览器的安装包管理工具       yarn中国自己创造的   ==》   基于windows
+   homebrew==》基于macos的
+	npm init  项目初始化 == npm init -y
+	npm install 下载 / 安装依赖 =npm i
+	npm install package-name -g（全局安装）/ --save（安装生产环境的依赖=-S）/ --save-dev（安装开发环境的以来=-D）
+
+镜像   
+     cnpm淘宝镜像
+     nrm
+     nrm   ls查看镜像列表
+     nrm   use  使用镜像
+
+nvm node 版本管理工具	
+	
+
+面试题：1、module.exports\exports\require\import\export\exportDefault分别是什么意思?有什么区别?
+             2、cmd和amd的区别
+                  cmd主要common.js模块化的前身    define（）
+                  amd主要是sea.js
+module.exports和exports
+   区别：exports是module.exports的一个引用，exports指向module.exports
+             值都是数组类型
+             默认为空对象
+
+模板引擎：
+	ejs
+	      render渲染+template模板
+	art-template
+	jade==》升级版pug
+	swig
+-----------------------
+express  框架
+	基于Nodejs平台开发的快速、极简、开放的框架
+重要：
+   路由
+   中间件
+   API
+   npm install express --save
+     var express=require（‘express’）
+     var app=express（）
+     app.use（）
+     app.get（）
+     app.post（）
+     中间件：body-parser处理post请求
+ 模板引擎：
+   ejs
+      app.set（‘views’，path.join（__dirname,'文件夹名称'））
+       app.set（‘view engine’，‘ejs’）
+   express-art-template
+       var art=require（‘express-art-template’）
+       app.engine（‘art’，require（‘express-art-template’））
+       res.render（template，data）
+
+=============================================
+路由     第三方中间件需要通过use去使用    后期都是使用router写接口
+    express.Router（）
+    router.get（）
+    router.post（）
+        工具：postman  接口测试工具（应用程序，需要下载）
+cookie
+   res.cookie
+   cookie-parser（中间件）
+session   基于服务端
+问：在什么场景下使用cookie或session
+需要下载：npm install express-session --save
+   express-session
+   app.use（）
+session会默认申请一个sessionID
+
+跨域
+
+   res.setHeader()
+   res.header('Access-control-allow-origin','*')
+
+浏览器控制台：
+console调试
+sources资源
+network服务器响应
+performance看响应设备好不好
+application缓存
+
+
+
+
+
+本周任务：
+    数据库  mongodb  --mysql
+       1、安装     2、命令操作    3、代码操作==》增删改查
+    koa
+    vue
+
+
+mongodb启动：
+1\mongod.exe服务端
+   mongod --dbpath=d:/Download/mongodb/data运行服务端命令
+2\mongo.exe客服端
+   mongo运行客户端命令
+   show dbs显示空间
+
+
+
+
+
+
+
+
+

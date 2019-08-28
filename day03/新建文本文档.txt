@@ -1,0 +1,17 @@
+npm  包管理工具  包  
+1.npm init  项目初始化   npm init -y
+silly-datetime
+2.npm install  下载（安装依赖）
+npm install silly-datetime(-g -save(-S) -save-dev(-D))
+-g   全局安装  -save  安装在生产环境    -save-dev 安装在开发环境
+node_modules
+
+
+nvm node的版本管理工具
+nrm  镜像源管理工具     
+淘宝镜像  cnpm
+npm   install  nrm-g
+nrm Is   列出镜像源管理工具
+nrm  use  镜像源  使用镜像源工具
+
+npm i -S formidable =>npm install formidable -save

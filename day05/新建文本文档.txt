@@ -1,0 +1,44 @@
+回顾
+    node 
+        定义:基于
+        特点:单线程，非阻塞I/O，事件驱动
+        模块：
+	node内置模块:http服务模块
+			createServer(callback(request,response))request请求response响应
+			lishen监听(port,callback)
+		       fs文件系统
+			读文件readFile(url,[options],callback)
+			写文件writeFile默认是覆盖，添加则需{'flag':'a'}
+			复制
+			删除文件
+			创建文件夹
+			读取文件夹
+			删除文件夹
+			重命名
+			
+		       url地址模块
+		       path路径模块
+		       querystring查询字符串
+		       buffer混存区
+			二进制缓存区new Buffer()
+		       events时间模块
+			events.emitter()  on   once
+		       stream流  时间流
+			        文件流
+				
+
+
+				
+	自定义模块：
+		exports
+		module.expoerts
+		区别：1：exports是module.expoerts的应用
+		          2：值是数组类型
+		          3，默认为空对象
+    express
+
+
+
+
+面试题:    1，
+	2，AMD和CMD的区别

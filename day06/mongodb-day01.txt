@@ -1,0 +1,94 @@
+数据库的分类：
+非关系型数据库：行为以及安全系数不比关系型数据库
+   mongodb     sqlserver      sqllite
+   关系=》库和集合的关系（库->集合(文档)->对象）
+
+关系型数据库：
+   mysql   oracle
+   关系=》库->表->对象
+
+--------------------------------------
+命令:
+show dbs   查看当前所有数据库
+use database-name  使用数据库
+show collections  查看选中数据库下面的集合
+
+增:  
+   db.集合名.insert({'username':'tom','password':123})
+   db.集合名.insert([{'username':'tom','password':123},{'username':'jack','password':456}])
+      传入多条数据时对象用数组包裹,插入单个可以直接传入对象
+   db.集合名.insertMany([{'username':'tt','password':123},{'username':'qq','password':456}])   版本3.4以后才出现的
+   db.集合名.insertOne({})
+   db.集合名.save({'username':'ee','password':789})  ---> 保存文档
+删:
+  不传参会报错,必须传入参数(一个对象)  !!!!!如果传入一个空对象{}代表删除所有数据
+   db.集合名.remove()
+   db.集合名,deleteOne()删除单个数据
+   db.集合名.deleteMany()删除匹配所有
+
+改:
+  db.集合名.update({},{$set:{}})
+  db.集合名.update({'username':'qq',{$set:{'username':'tt'}})    $set可以不写,但会影响后面的功能
+  db.集合名.updateOne()更新一条
+  db.集合名.updateMany()更新所有
+
+查: 
+   db.集合名.find()  如果不传参即查找所有,可以传参{'username':'tom'}查找对应的数据
+   db.集合名.findOne()
+   db.集合名.findMany()
+
+db查看当前使用的数据库
+use 数据库名 可以直接创建数据库
+db.MONGO集合名.insert()可以直接创建一个集合
+db.dropDatabase()删除当前使用的数据库
+
+limit 截取
+  db.集合名.find().limit(4)从开始截取4条数据
+
+skip 跳过
+  db.集合名.find().skip(4)跳过当前查找后续所有
+
+sort 排序
+  db.集合名.find().sort({'age':1})根据age的数字大小升序,-1则为降序
+
+count 当前集合中的数据总条数
+  db.集合名.find().count()
+
+and 并且   or 或者   $gt 大于   $gte 大于等于    $lt 小于    $lte 小于等于    $ne 不等于
+db.集合名.find({'age':{$gt:number}})
+
+====================================
+创建用户   权限
+
+创建用户   基于管理员权限
+	db.createUser(
+	... {
+	...   user: "admin",
+	...   pwd: "123456",
+	...   roles: [ { role: "userAdminAnyDatabase", db: "admin"} ]
+	... }
+	... )
+userAdminAnyDatabase管理所有user权限
+默认管理员(超级管理员):root            mysql-u root -p
+
+
+权限:
+read只读
+write可写
+readAnyDatabase  仅读
+userAdminAnyDatabase  管理所有用户的数据
+readWriteAnyDatabase 可读可写
+
+代码操作==>封装
+  MongoClient:  客户端   ->connect  连接
+
+
+
+
+
+
+
+
+
+
+

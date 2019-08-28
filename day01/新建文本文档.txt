@@ -1,0 +1,129 @@
+什么是node？ 1.Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 
+                      2.Node.js可以使JavaScript运行在服务器端；
+node的发展历程   C写的HTTP服务库
+2009年2月，诞生了node，    2009年底，开源      2016年开始前后端分离，node.js开始频繁应用，火爆起来
+HTTP状态码  100-200-300-400-500   200请求成功，服务器端响应成功  300 302 缓存   404 资源丢失（本地文件）  500  服务器端响应错误(ajax中的data:前端字段与后端字段不符=>500)
+javascript是一种弱类型的脚本语言，也是一种解释型语言，而C，C++，java是强类型语言，也是编译型语言
+node的特点: 1.单线程， 2.非阻塞I/O，3.事件驱动(事件循环=>事件环)     性能提高，没有资源浪费(核心利用率100%)
+单线程带来的好处，操作系统完全不再有线程创建，销毁的时间开销
+node的应用：用户表单收集，考试系统，聊天室，
+
+
+node使用方法：
+打开cmd命令行
+window + R  CMD
+输入node -v查看版本号
+输入node + 回车进入交互模式
+ctrl +c 退出交互模式，按入上键可快捷回复上次浏览目录
+cd 切换目录及盘符
+盘符 切换盘符
+node 文件名 可使用tab快捷输入，
+
+
+请求方式有哪些？
+get  post  delete  put  patch  options
+
+什么是响应头？
+res.writeHead(200,{'Content-type':'text/html;charset=UTF8'})
+
+
+
+
+
+
+
+
+
+
+
+
+node  后台  一周多===》（框架express、koa）   git
+vue  两周（含项目）    mongodb数据库     mysql
+react  一周
+微信小程序  一周     小程序的框架mpvue和taro
+react-native（做app的）
+=============================================
+node=>     javascript（客户端语言）
+针对于前端来说：后端（服务端）语言
+针对于后端（服务端）来说：中间件
+
+定义：1、node.js是一个让JavaScript运行在V8引擎上的平台
+          2、也可理解为：node.js可以使JavaScript运行在服务器端
+
+面试题：什么是node？（1、2、选一个答，第一种高逼格，第二种好理解）
+
+node的发展历程：2009年2月诞生，2009年底开源，2016年火爆
+   作者:Ryan Dahl（俄罗斯）
+关键字：http  
+http状态码：
+100   200（*****）=》服务器端响应成功   
+300=》302缓存(302请求的资源现在临时从不同的URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求)302用来做临时跳转
+400（***）=》404资源丢失（针对本地文件）   
+500（*****）服务器端响应错误（前端也可能会引起服务器端错误：如登录用户名需要username发送了userName会导致500错误）
+
+面试题：前端造成500的错误有哪些？
+           ajax请求中data发送的请求信息，名字要与后台相同才行
+
+JavaScript的特点：弱类型、解释型语言(逐行进行翻译)
+c\java\c++:          强类型、编译型语言(将代码进行预加载，翻译成可被浏览器识别的语言)
+
+！！！2009年2月是node的诞生，2009年年底开源，2016年node火爆起来
+16年基本上就是划时代的意义：前端=》网页制作，UI=》网页设计，淘宝=》美工
+
+面试题：
+node的特点：（三个）
+  1、单线程   只有一个运行空间（node.js不为每一个客户链接创建一个新的线程，而仅仅使用一个线程）
+后端语言是多线程的，为每个用户链接创建一个新的线程，每个线程需要耗费大约2MB内存，成本上升
+  2、非阻塞I/O（异步，I/O会阻塞代码的执行=》相当于同步）I input   O  output  阻塞I/O是同步过程     
+  3、事件驱动（事件循环=》js的回调函数）这种处理机制叫做：事件环机制   回调函数  类似于settimeout
+node.js底层是c++写的
+
+node.js的应用：用户表单收集，考试系统，聊天室，图文直播，提供json的api
+
+安装：node安装包=》分两种：msi（偷懒型） zip（考验技术型）
+
+操作：打开cmd命令行=》win+r
+        输入node -v      //查看当前node版本
+        输入node        //开启node交互模式（进入环境，可以开始编写js）
+        ctrl+c             //退出当前的交互模式，(也可以用.exit)
+        cd                  //切换目录以及盘符
+       盘符：   >d:进入D盘   >c:进入C盘
+       node 文件名     //执行文件（也可以node+Tab建进行索引）
+       shift+右键文件夹，选择powershell也可以打开命令行
+！！！文件名不能叫node
+
+http模块：
+     require   加载/引入   加载http模块=》服务模块
+     var http=require('http')
+     //创建服务器
+     http.createServer(function(req，res){
+	//req=request请求   res=response响应
+	console.log(arguments)
+	//res.end结束响应
+                res.end('success')        //如果返回中文会乱码
+                //解决中文乱码
+	res.writeHead(200,{'Content-type':'text/html';charset=utf8})     //响应头   后端中的utf-8中的‘-’尽量别加
+	res.end('我爱中国')
+
+     }).listen(3000，function(){
+	console.log('listen挂起')
+	})      //listen监听端口，可以加回调函数
+
+localhost  本地    http://127.0.0.1：3000
+3000端口，本机默认端口80，所以不要用80，其余随便写，一般写3000
+在浏览器的url中输入localhost：3000         //本地端口
+面试题：s
+请求方式：get\post\delete\put\patch\options   6种
+
+agent：标识
+
+
+鼠标点击cmd会造成服务器卡顿，可以回车解决/ctrl+c解决
+fs：file system 文件系统   作用：操作文件
+readfile读文件   输出buffer时进行tostring操作
+
+
+作业：在static文件夹下新建一个red.css，在服务器端引入样式如何实现
+          在red文件中插入图片，如何渲染到页面上
+
+
